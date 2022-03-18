@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&family=Roboto:wght@400;700&display=swap');
+
+:root{
+  --main-color: #fff;
+  --bg-color: #f5f5f5;
+  --secondary-color: #2E3440;
+  --input-label-color: #c5c9cf;
+  --input-placeholder-color:#4C566A;
+  --submit-btn-color:#ff4b5a;
+  --input-border-bottom-color:#ebebeb;
+  --error-msg-color: #ff3333;
+  --success-msg-color: #198754;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html{
+  font-family: 'Poppins', sans-serif;
+}
+.App {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+/* FORM STYLE */
+form h1{
+  margin-bottom: 1rem;
+}
+form{
+  min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  font-size: .7rem;
+  background-color: var(--main-color);
+  box-shadow: 0px 5px 12px 2px rgb(214, 214, 214);
+}
+/* NAME-EMAIL DIV */
+.wrapper-name, .wrapper-email{
+  display: flex;
+  flex-direction: column;
+}
+/* LABEL - INPUTS - TEXTAREA - SUBMIT */
+label{
+  color: var(--input-label-color);
+}
+input, textarea{
+  outline: none;
+  border: 0;
+  border-bottom: 2px solid var(--input-border-bottom-color);
+  padding: .5rem .2rem;
+  margin-bottom: 1rem;
+  font-size: .8rem;
+  color: var(--input-placeholder-color);
+}
+textarea{
+  font-family: inherit; 
+  resize: none;
+}
+input[type="submit"]{
+  max-width: 100px;
+  border: 0;
+  background-color: var(--submit-btn-color);
+  color: var(--main-color);
+}
+/* INPUT PLACEHOLDER STYLE */
+input::placeholder, textarea::placeholder{
+  color: var(--input-placeholder-color);
+  font-size: .8rem;
+}
+/* INPUT PLACEHOLDER FOCUS */
+input:focus::placeholder, textarea:focus::placeholder{
+  color: transparent;
+}
+input:focus, textarea:focus{
+  border-bottom: 1px solid var(--submit-btn-color);
+}
+/* SUBMIT HOVER */
+input[type="submit"]:hover{
+  background-color: var(--secondary-color);
+}
+
+/* MESSAGES COLORS */
+.error, .success, .sending{
+  font-size: .8rem;
+  margin-top: -1rem;
+  font-style: italic;
+}
+.error{
+  color:var(--error-msg-color)
+}
+.success{
+  color: var(--success-msg-color);
+  text-align: center;
+}
+.sending{
+  color: var(--input-placeholder-color);
+  text-align: center;
+  margin-top: 2.2rem;
+}
+
+/* ----------------------------------------------------- */
+/*                   MEDIA QUERIES                       */
+/* ----------------------------------------------------- */
+@media screen and (min-width: 820px) {
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-self: stretch;
+    gap: 2rem;
+  }
+  label{
+    font-size: 1rem;
+  }
+  form{
+    min-width: 70%;
+    padding: 3rem 7rem;
+  }
+  input, textarea{
+    font-size: 1rem;
+  }
+  input::placeholder, textarea::placeholder{
+    font-size: 1rem;
+  }
+  .error, .success{
+    font-size: 1rem;
+  }
+}

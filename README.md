@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# **Form Validations**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React practice with forms and validations.
+using [Form Submit](https://formsubmit.co/) as backend platform in order to send the email.
 
-## Available Scripts
+## **Project structure**
 
-In the project directory, you can run:
 
-### `npm start`
+<img src="./public/images/projectStructure.png" width="500px">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **RegEx validations:**
+``helpers > formValidations.js``
+- name input: can't be empty and numbers are not allowed.
+- email: should be a valid email
+- subject: can't be empty
+- comments/contact message: can't be empty and must not have more than 255 characters
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **custom hooks**
+`hooks > useForm.js`
 
-### `npm test`
+useForm receive `initialForm` as parameter and return and object with:
+  - form data. 
+  - loader value (true or false) in order to render Loader component
+  - error object in case of fails validations
+  - response value (true or false) in order to render Message component with success text or alert in case of errors
+  - handleChange: listen for changes on inputs and grab the values
+  - handleBlur: use setError state and pass the formValidations functions to start validating all the inputs
+  - handleSubmit: fetch url from form submit, and pass the form info, reset loader and response states as needed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+state: 
+![state](./public/images/state.png)
+  - form: storage form data
+  - loader: can be true or false, conditional rendering for Loader component on sending message
+  - error: setError will receive the validation function from helpers folder, then run validations for each field, is some fails it will create an object that will storage the input name with corresponding error message 
+  - response: can be true and false, starting at false and after fetch submit form it will return the promise with response, response will change to true and display success message via Message component.
 
-### `npm run build`
+  Global variables:  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ![global variables](./public/images/globalVariables.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - mailTo: need to be changed from email@email.com to the email when you want to receive the form information
+  - url: don't need to be edited, is pointed to the form submit services using template strings in order to add the email assigned to `mailTo` variable
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **screenshots**
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![form](./public/images/form.png)
+![form](./public/images/nameValidation.png)
+![form](./public/images/emailValidation.png)
+![form](./public/images/subjectValidation.png)
+![form](./public/images/messageValidation.png)
+![form](./public/images/sending.png)
+![form](./public/images/submit.png)
+![form](./public/images/responsive.png)
