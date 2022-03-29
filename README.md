@@ -4,7 +4,7 @@ React practice with forms and validations.
 using [Form Submit](https://formsubmit.co/) as backend platform in order to send the email.
 
 
- > **demo [here](https://form-validations-bx8g78r7w-csargomez.vercel.app/)**
+ > **demo [here](https://form-validations-fawn.vercel.app/)**
 ## **Project structure**
 
 
