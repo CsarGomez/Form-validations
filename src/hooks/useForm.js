@@ -12,7 +12,7 @@ const useForm = (initialForm) => {
   const [response, setResponse] = React.useState(false);
 
   // EMAIL - FETCH URL AND OPTIONS
-  const mailTo = `email@email.com`;
+  const mailTo = `me@csargomez.com`;
   const url = `https://formsubmit.co/ajax/${mailTo}`;
   const options = {
     method: "POST",
@@ -62,7 +62,7 @@ const useForm = (initialForm) => {
             }, 5000);
           } else {
             alert(
-              "an error has occurred: Please change the email in hooks folder > useForm > email variable"
+              "an error has occurred: Please change the email to a valid email in hooks folder > useForm > email variable ... currently email is email@email which is not valid email"
             );
             setLoader(false);
             setForm(initialForm);

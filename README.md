@@ -3,6 +3,8 @@
 React practice with forms and validations.
 using [Form Submit](https://formsubmit.co/) as backend platform in order to send the email.
 
+
+ > **demo [here](https://form-validations-bx8g78r7w-csargomez.vercel.app/)**
 ## **Project structure**
 
 
@@ -39,7 +41,7 @@ state:
   ![global variables](./public/images/globalVariables.png)
 
   - mailTo: need to be changed from email@email.com to the email when you want to receive the form information
-  - url: don't need to be edited, is pointed to the form submit services using template strings in order to add the email assigned to `mailTo` variable
+  - url: don't need to be edited, is pointed to the form submit services using template strings in order to add the email assigned to `mailTo` variable  
 
 ## **screenshots**
 
